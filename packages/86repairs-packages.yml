@@ -1,0 +1,40 @@
+generated: '2026-09-05'
+method: searched
+source: >-
+  npm registry search (registry.npmjs.org/-/v1/search?text=86repairs), pypi.org/pypi/86repairs/json,
+  the GitHub user/org search API (q=86repairs, 0 results; no api.github.com/orgs/86repairs), and the
+  86repairs.com site and sitemap, which contain no SDK, developer or download page
+package_count: 0
+packages: []
+note: >-
+  86 Repairs publishes no first-party client library on any public registry. npm search for
+  "86repairs" returns zero packages, PyPI returns 404 for the project, and no GitHub organization or
+  user exists under that name, so there is nothing to record a `version:` or `published:` date for.
+  The company's only publicly distributed builds are end-user mobile applications, not client
+  libraries, and neither store exposes a package-registry metadata endpoint that reports a semantic
+  version, so they are listed below as distributions rather than as packages.
+distributions:
+- kind: mobile-app
+  platform: ios
+  name: 86 Repairs
+  publisher: Eighty-Six Inc.
+  url: https://apps.apple.com/us/app/86-repairs/id1664937521
+  registry: app-store
+  version: null
+  published: null
+  official: true
+  note: End-user app, not an SDK. The iTunes Search API entry carries no client-library version.
+- kind: mobile-app
+  platform: android
+  name: 86 Repairs
+  bundle_id: com.eightysixrepairs.app
+  url: https://play.google.com/store/apps/details?id=com.eightysixrepairs.app
+  registry: google-play
+  version: null
+  published: null
+  official: true
+  note: End-user app, not an SDK. Google Play publishes no machine-readable version endpoint.
+registries_checked:
+- {registry: npm, query: 'text=86repairs', result: 0 packages}
+- {registry: pypi, url: 'https://pypi.org/pypi/86repairs/json', status: 404}
+- {registry: github, url: 'https://api.github.com/search/users?q=86repairs', result: total_count 0}

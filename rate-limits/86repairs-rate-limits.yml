@@ -1,0 +1,17 @@
+generated: '2026-09-05'
+method: searched
+source: https://www.86repairs.com/
+limit_count: 0
+rate_limits: []
+note: >-
+  No rate limits are published because no public API is published. 86 Repairs operates no developer
+  portal, API reference or documentation host (docs., developer. and developers.86repairs.com do not
+  resolve), so there is no documented quota, window, burst allowance, exhaustion status code or
+  RateLimit-* / Retry-After response-header contract to record. The private portal backend at
+  eightysix-api.86repairs.com returns HTTP 200 only on /health and emits no rate-limit headers on
+  that response; api.86repairs.com answers 403 to every anonymous request, so no runtime signal
+  could be observed there either. An honest zero.
+evidence:
+- {url: 'https://eightysix-api.86repairs.com/health', status: 200, note: 'no RateLimit-* headers on the response'}
+- {url: 'https://api.86repairs.com/', status: 403, note: 'blanket edge deny, no headers observable'}
+- {url: 'https://docs.86repairs.com/', status: 0, note: 'host does not resolve'}

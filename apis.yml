@@ -1,23 +1,105 @@
 aid: 86repairs
 name: 86 Repairs
-description: '86 Repairs is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
-url: https://raw.githubusercontent.com/api-evangelist/86repairs/refs/heads/main/apis.yml
-x-type: company
-x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
-specificationVersion: '0.20'
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/86repairs/refs/heads/main/apis.yml
+type: Index
+image: >-
+  https://www.86repairs.com/hubfs/86%20Repairs%20for%20Facilities%20Managers%20%281200%20x%20630%20px%29%20%281%29.png
+description: >-
+  86 Repairs is a restaurant equipment repair and maintenance (R&M) management platform founded in
+  2018 in Chicago by Daniel Estrada and Joe Gallagher. It manages the repair lifecycle for restaurant
+  operators — 24/7 intake and troubleshooting, warranty verification, dispatch to a vetted service
+  provider network, preventative maintenance scheduling, equipment and asset inventory, invoice
+  assurance and R&M spend analytics — and is used by operators and franchisees of brands including
+  McDonald's, Wendy's, Taco Bell, Jersey Mike's, Five Guys and Wingstop. The product is delivered as
+  an end-user web portal (portal.86repairs.com) and iOS/Android mobile apps, backed by a private
+  NestJS service at eightysix-api.86repairs.com; it is not offered as a developer platform. Parts
+  Town, the Addison, Illinois OEM foodservice parts distributor, acquired 86 Repairs in June 2026 to
+  connect parts availability with repair and service workflows. As of this profile 86 Repairs
+  publishes no public API: no developer portal, no API reference, no OpenAPI/AsyncAPI/GraphQL
+  contract, no SDK or package on any public registry, no webhook catalog, no MCP server and no A2A
+  agent card were found on any host it controls.
+tags:
+  - Restaurants
+  - Foodservice
+  - Facilities Management
+  - Maintenance
+  - Field Service Management
+  - Equipment
+  - Asset Management
+  - Hospitality
+  - Vendor Management
+  - No Developer Program
 created: '2026-09-05'
 modified: '2026-09-05'
-tags:
-- Company
+specificationVersion: '0.20'
+x-type: company
+x-source: harvest:secondary-market
 apis: []
+common:
+- type: DomainSecurity
+  url: security/86repairs-domain-security.yml
+- type: Website
+  url: https://www.86repairs.com/
+- type: Packages
+  url: packages/86repairs-packages.yml
+- type: LLMsTxt
+  url: llms/86repairs-llms.txt
+- type: Plans
+  url: plans/86repairs-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/86repairs-rate-limits.yml
+- type: Blog
+  url: https://blog.86repairs.com/
+- type: Support
+  url: https://www.86repairs.com/customer-support
+- type: HelpCenter
+  url: https://intercom.help/86-repairs-customer-service/en/
+- type: Login
+  url: https://portal.86repairs.com/login
+- type: TermsOfService
+  url: https://www.86repairs.com/terms
+- type: PrivacyPolicy
+  url: https://www.86repairs.com/privacy
+- type: LinkedIn
+  url: https://www.linkedin.com/company/86repairs
+- type: YouTube
+  url: https://www.youtube.com/@86Repairs
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
-common:
-- type: Website
-  url: https://equityzen.com/company/86repairs
+x-tier: profiled
+x-tier-reason: 'enrichment pass 2026-09-05: full STEP 0b contract discovery run against every host
+  including the portal-derived API host eightysix-api.86repairs.com; no public API surface found'
+x-enrichment:
+  date: '2026-09-05'
+  status: minimal
+  artifacts_added: 6
+  pass: local-v3
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: >-
+    86 Repairs ships its repair-management product only as an end-user web portal and mobile apps —
+    no developer subdomain resolves (docs., developer., developers.86repairs.com all fail DNS), the
+    sitemap lists no API, developer or integrations page, and the private portal backend at
+    eightysix-api.86repairs.com returns a real JSON 404 for /openapi.json, /swagger.json, /graphql
+    and every .well-known path while serving only /health.
+  evidence:
+    - url: https://eightysix-api.86repairs.com/openapi.json
+      status: 404
+    - url: https://eightysix-api.86repairs.com/graphql
+      status: 404
+    - url: https://eightysix-api.86repairs.com/health
+      status: 200
+    - url: https://docs.86repairs.com/
+      status: 0
+    - url: https://developer.86repairs.com/
+      status: 0
+    - url: https://api.86repairs.com/
+      status: 403
+    - url: https://www.86repairs.com/sitemap.xml
+      status: 200
+  checked: '2026-09-05'

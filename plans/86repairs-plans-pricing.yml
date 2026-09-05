@@ -1,0 +1,15 @@
+generated: '2026-09-05'
+method: searched
+source: https://www.86repairs.com/how-it-works/
+plan_count: 0
+plans: []
+note: >-
+  86 Repairs publishes no pricing tiers. https://www.86repairs.com/pricing redirects (HTTP 200 at
+  https://www.86repairs.com/how-it-works/) and no /pricing page appears in the sitemap; the only
+  commercial call to action on the site is the "Get Started" demo-request form at
+  https://www.86repairs.com/get-started/ (HTTP 200). Pricing is quoted through a sales conversation,
+  and no plan names, prices, quotas or overage terms are published anywhere on the public site. This
+  is an enterprise contact-sales motion, not an omission in this profile.
+evidence:
+- {url: 'https://www.86repairs.com/pricing', status: 200, note: 'redirects to /how-it-works/'}
+- {url: 'https://www.86repairs.com/get-started/', status: 200, note: 'demo-request form, no prices'}

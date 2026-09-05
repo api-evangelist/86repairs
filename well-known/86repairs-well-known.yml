@@ -1,0 +1,134 @@
+generated: '2026-09-05'
+method: probed
+source: >-
+  direct unauthenticated HTTPS probes of every host this record knows — the registrable domain and
+  www, the marketing/blog hosts, the customer portal, and both API hosts (api.86repairs.com and
+  eightysix-api.86repairs.com, the latter read out of the portal's own JS bundle at
+  https://portal.86repairs.com/assets/index-XKA58jsS.js)
+name: 86 Repairs .well-known Probe
+description: >-
+  No .well-known document is served on any 86 Repairs host. www.86repairs.com and
+  blog.86repairs.com (HubSpot CMS) return a hard 404 HTML page on every path. 86repairs.com 302s
+  to www. api.86repairs.com answers HTTP 403 "Access denied" (13 bytes) to every request including
+  the site root — a blanket edge deny, not a document. eightysix-api.86repairs.com, the NestJS
+  service behind the customer portal, returns a real JSON 404 ({"message":"Cannot GET <path>"}) on
+  every well-known path; only /health answers 200. portal.86repairs.com is a Vue single-page app
+  whose catch-all returns HTTP 200 with the SAME 2,473-byte index shell for every path — a
+  soft-404, not a document — confirmed by the negative-control probe below.
+  NO WellKnown and NO SecurityTxt pointer is emitted for this provider: nothing here is a hit.
+hit_count: 0
+soft_404_host: portal.86repairs.com
+soft_404_control:
+  url: https://portal.86repairs.com/.well-known/86repairs-negative-control-7f3ab91c.json
+  status: 200
+  content_type: text/html
+  bytes: 2473
+  note: >-
+    Control probe of a path that cannot exist. It returned the identical SPA shell and byte count
+    as every other path on this host, so every 200 on portal.86repairs.com is discarded.
+path_echo_control: passed
+hosts:
+- host: https://www.86repairs.com
+  documents:
+  - {path: /.well-known/security.txt, status: 404, file: null}
+  - {path: /.well-known/openid-configuration, status: 404, file: null}
+  - {path: /.well-known/oauth-authorization-server, status: 404, file: null}
+  - {path: /.well-known/oauth-protected-resource, status: 404, file: null}
+  - {path: /.well-known/api-catalog, status: 404, file: null}
+  - {path: /.well-known/ai-plugin.json, status: 404, file: null}
+  - {path: /.well-known/ucp.json, status: 404, file: null}
+  - {path: /.well-known/acp.json, status: 404, file: null}
+  - {path: /.well-known/aauth-resource.json, status: 404, file: null}
+  - {path: /.well-known/apis.json, status: 404, file: null}
+  - {path: /apis.json, status: 404, file: null}
+  - {path: /apis.yml, status: 404, file: null}
+  - {path: /.well-known/agent-card.json, status: 404, file: null}
+  - {path: /.well-known/agent.json, status: 404, file: null}
+  - {path: /.well-known/86repairs-negative-control-7f3ab91c.json, status: 404, file: null}
+- host: https://86repairs.com
+  documents:
+  - {path: /.well-known/security.txt, status: 302, file: null}
+  - {path: /.well-known/openid-configuration, status: 302, file: null}
+  - {path: /.well-known/oauth-authorization-server, status: 302, file: null}
+  - {path: /.well-known/oauth-protected-resource, status: 302, file: null}
+  - {path: /.well-known/api-catalog, status: 302, file: null}
+  - {path: /.well-known/ai-plugin.json, status: 302, file: null}
+  - {path: /.well-known/aauth-resource.json, status: 302, file: null}
+  - {path: /.well-known/apis.json, status: 302, file: null}
+  - {path: /apis.json, status: 302, file: null}
+  - {path: /apis.yml, status: 302, file: null}
+  - {path: /.well-known/agent-card.json, status: 302, file: null}
+  - {path: /.well-known/agent.json, status: 302, file: null}
+  - {path: /.well-known/86repairs-negative-control-7f3ab91c.json, status: 302, file: null}
+- host: https://api.86repairs.com
+  note: >-
+    Blanket edge deny. Every path, including the host root, returns 403 with the 13-byte body
+    "Access denied". No document is reachable and none is asserted.
+  documents:
+  - {path: /.well-known/security.txt, status: 403, file: null}
+  - {path: /.well-known/openid-configuration, status: 403, file: null}
+  - {path: /.well-known/oauth-authorization-server, status: 403, file: null}
+  - {path: /.well-known/oauth-protected-resource, status: 403, file: null}
+  - {path: /.well-known/api-catalog, status: 403, file: null}
+  - {path: /.well-known/ai-plugin.json, status: 403, file: null}
+  - {path: /.well-known/ucp.json, status: 403, file: null}
+  - {path: /.well-known/acp.json, status: 403, file: null}
+  - {path: /.well-known/aauth-resource.json, status: 403, file: null}
+  - {path: /.well-known/apis.json, status: 403, file: null}
+  - {path: /apis.json, status: 403, file: null}
+  - {path: /apis.yml, status: 403, file: null}
+  - {path: /.well-known/agent-card.json, status: 403, file: null}
+  - {path: /.well-known/agent.json, status: 403, file: null}
+  - {path: /.well-known/86repairs-negative-control-7f3ab91c.json, status: 403, file: null}
+- host: https://eightysix-api.86repairs.com
+  note: >-
+    NestJS service behind the customer portal. Real JSON 404s, so these are genuine negatives.
+    /health returns 200 {"status":"ok"}; no spec, no GraphQL, no well-known document.
+  documents:
+  - {path: /.well-known/security.txt, status: 404, file: null}
+  - {path: /.well-known/openid-configuration, status: 404, file: null}
+  - {path: /.well-known/oauth-authorization-server, status: 404, file: null}
+  - {path: /.well-known/oauth-protected-resource, status: 404, file: null}
+  - {path: /.well-known/api-catalog, status: 404, file: null}
+  - {path: /.well-known/ai-plugin.json, status: 404, file: null}
+  - {path: /.well-known/aauth-resource.json, status: 404, file: null}
+  - {path: /.well-known/apis.json, status: 404, file: null}
+  - {path: /apis.json, status: 404, file: null}
+  - {path: /apis.yml, status: 404, file: null}
+  - {path: /.well-known/agent-card.json, status: 404, file: null}
+  - {path: /.well-known/agent.json, status: 404, file: null}
+  - {path: /.well-known/86repairs-negative-control-7f3ab91c.json, status: 404, file: null}
+- host: https://portal.86repairs.com
+  note: >-
+    Vue SPA catch-all. Every path returns 200 with the identical 2,473-byte index shell, including
+    the negative control, so every 200 on this host is treated as a miss.
+  documents:
+  - {path: /.well-known/security.txt, status: 200, file: null}
+  - {path: /.well-known/openid-configuration, status: 200, file: null}
+  - {path: /.well-known/oauth-authorization-server, status: 200, file: null}
+  - {path: /.well-known/oauth-protected-resource, status: 200, file: null}
+  - {path: /.well-known/api-catalog, status: 200, file: null}
+  - {path: /.well-known/ai-plugin.json, status: 200, file: null}
+  - {path: /.well-known/ucp.json, status: 200, file: null}
+  - {path: /.well-known/acp.json, status: 200, file: null}
+  - {path: /.well-known/aauth-resource.json, status: 200, file: null}
+  - {path: /.well-known/apis.json, status: 200, file: null}
+  - {path: /apis.json, status: 200, file: null}
+  - {path: /apis.yml, status: 200, file: null}
+  - {path: /.well-known/agent-card.json, status: 200, file: null}
+  - {path: /.well-known/agent.json, status: 200, file: null}
+  - {path: /.well-known/86repairs-negative-control-7f3ab91c.json, status: 200, file: null}
+- host: https://blog.86repairs.com
+  documents:
+  - {path: /.well-known/security.txt, status: 404, file: null}
+  - {path: /.well-known/openid-configuration, status: 404, file: null}
+  - {path: /.well-known/oauth-authorization-server, status: 404, file: null}
+  - {path: /.well-known/api-catalog, status: 404, file: null}
+  - {path: /.well-known/ai-plugin.json, status: 404, file: null}
+  - {path: /.well-known/aauth-resource.json, status: 404, file: null}
+  - {path: /.well-known/apis.json, status: 404, file: null}
+  - {path: /apis.json, status: 404, file: null}
+  - {path: /apis.yml, status: 404, file: null}
+  - {path: /.well-known/agent-card.json, status: 404, file: null}
+  - {path: /.well-known/agent.json, status: 404, file: null}
+  - {path: /.well-known/86repairs-negative-control-7f3ab91c.json, status: 404, file: null}
