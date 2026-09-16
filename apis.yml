@@ -20,6 +20,17 @@ description: >-
   contract, no SDK or package on any public registry, no webhook catalog, no MCP server and no A2A
   agent card were found on any host it controls.
 tags:
+  - Restaurant
+  - Food Service
+  - Facilities Management
+  - Maintenance
+  - Field Service Management
+  - Equipment
+  - Asset Management
+  - Hospitality
+  - Vendor Management
+  - No Developer Program
+tags_raw:
   - Restaurants
   - Foodservice
   - Facilities Management
