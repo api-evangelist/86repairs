@@ -1,0 +1,26 @@
+# Front Door AI Index — 86repairs — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: 86repairs
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.86repairs.com
+  final_host: www.86repairs.com
+  ownership: own
+  owner: 86repairs
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 2
+  host_score: 2
+  density: 3.24
+  words: 618
+  tiers:
+    agentic: 0
+    core: 2
+    model: 0
+  ambiguous: 3
+  top_terms:
+    predictive: 3
+    AI: 2
