@@ -42,12 +42,14 @@ tags_raw:
   - Vendor Management
   - No Developer Program
 created: '2026-09-05'
-modified: '2026-09-05'
+modified: '2026-10-06'
 specificationVersion: '0.20'
 x-type: company
 x-source: harvest:secondary-market
 apis: []
 common:
+- url: https://blog.86repairs.com/rss.xml
+  type: BlogRSS
 - type: DomainSecurity
   url: security/86repairs-domain-security.yml
 - type: Website
